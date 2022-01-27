@@ -2,7 +2,7 @@
     var pos = 0;
     const pacArray = [
         ['PacMan1.png', 'PacMan2.png'],
-        ['PacMan3.png', 'PacMan4.png']
+        ['PacMan3.png', 'PacMan4.png'],
     ];
     var direction = 0;
     const pacMen = []; // This array holds all the pacmen
@@ -10,9 +10,9 @@
     function setToRandom(scale) {
         return {
             x: Math.random() * scale,
-            y: Math.random() * scale
-        }
-    }
+            y: Math.random() * scale,
+        };
+    };
     // Factory to make a PacMan at a random position with random velocity
     function makePac() {
         // returns an object with random values scaled {x: 33, y: 21}
@@ -32,14 +32,14 @@
         //
 
         // add new Child image to game
-        game.appendChild(position,velocity,newing);
+        game.appendChild( position, velocity, newing);
         // return details in an object
         return {
             position,
             velocity,
-            newimg
-        }
-    }
+            newimg,
+        };
+    };
 
     function update() {
         //loop over pacmen array and move each one and move image in DOM
@@ -52,7 +52,7 @@
             item.newimg.style.top = item.position.y;
         })
         setTimeout(update, 20);
-    }
+    };
 
     function checkCollisions(item) {
         if (item.position.x + item.velocity.x + item.newing.width > window.innerWidth || item.position.x + item.velocity.x < 0) item.velocity.x = -item.velocity.x;
@@ -60,18 +60,9 @@
         //
         // detect collision with all walls and make pacman bounce
         //
-    }
+    };
 
     function makeOne() {
         pacMen.push(makePac()); // add a new PacMan
-    }
-</SCRIPT>
-
-<body>
-    <div id='game'>
-        <button onclick='makeOne()' width='200' height='30'>Add PacMan</button>
-        <button onclick='update()' width='200' height='30'>Start Game</button>
-
-    </div>
-</body>
+    };
 
